@@ -4,8 +4,7 @@
   "description": "pet_cypress_project",
   "main": "index.js",
   "scripts": {
-   "build": "rollup -c",
-    "start": "http-server",
+    "start": "npx cypress run",
     "test": "cypress run",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
