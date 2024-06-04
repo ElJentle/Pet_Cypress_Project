@@ -4,7 +4,7 @@
   "description": "pet_cypress_project",
   "main": "index.js",
   "scripts": {
-    "start": "npx cypress run",
+    "start": "cypress run --record",
     "test": "cypress run",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
