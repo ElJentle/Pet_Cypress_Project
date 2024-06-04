@@ -1,8 +1,8 @@
 # Pet_Cypress_Project
 
-This repo contain the assessment task.
+This repo contains cypress test.
 
-1. The cypress test is a pet project on ggogle.com and petstore API
+1. The cypress test is a pet project on google.com and petstore API
 2. Note that the automation framework used is cypress
 3. The cypress automation project at contain both the UI tests (4 test cases) and API test (6 tests)
 4. The UI test is organised in page object, page is located at /cypress/support/pages/pageObject
