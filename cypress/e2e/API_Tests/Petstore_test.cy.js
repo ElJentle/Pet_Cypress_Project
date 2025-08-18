@@ -49,12 +49,12 @@ describe('Operations about user', () => {
     })
     it('Find purchase order by ID', () => {
         const requestBody = {
-            orderId: 11,
+            orderId: 121,
         }
         cy.request(
             {
                 method: 'GET',
-                url: 'https://petstore.swagger.io/v2/store/order/11',
+                url: 'https://petstore.swagger.io/v2/store/order/121',
                 body: requestBody
             })
             .then((response) => {
