@@ -1,4 +1,4 @@
-import googlePage from '../../support/pages/pageObject/google-page'
+/*import googlePage from '../../support/pages/pageObject/google-page'
 
 describe.skip('Verify onClick search result link opens on a new tab', () => {
 
@@ -18,4 +18,4 @@ describe.skip('Verify onClick search result link opens on a new tab', () => {
     after(() => {
     })
 
-})
+}) */

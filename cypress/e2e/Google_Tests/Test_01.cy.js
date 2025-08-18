@@ -1,4 +1,4 @@
-import googlePage from '../../support/pages/pageObject/google-page'
+/*import googlePage from '../../support/pages/pageObject/google-page'
 
 describe.skip('Verify search input field supports auto suggestion', () => {
 
@@ -16,4 +16,4 @@ describe.skip('Verify search input field supports auto suggestion', () => {
     after(() => {
     })
 
-})
+}) */

@@ -1,4 +1,4 @@
-import googlePage from '../../support/pages/pageObject/google-page'
+/*import googlePage from '../../support/pages/pageObject/google-page'
 
 describe.skip('Verify search result on image page are displayed', () => {
 
@@ -19,3 +19,6 @@ describe.skip('Verify search result on image page are displayed', () => {
     })
 
 })
+
+
+*/
