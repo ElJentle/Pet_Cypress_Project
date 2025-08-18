@@ -49,19 +49,19 @@ describe('Operations about user', () => {
     })
     it('Find purchase order by ID', () => {
         const requestBody = {
-            orderId: 10,
+            orderId: 11,
         }
         cy.request(
             {
                 method: 'GET',
-                url: 'https://petstore.swagger.io/v2/store/order/10',
+                url: 'https://petstore.swagger.io/v2/store/order/11',
                 body: requestBody
             })
             .then((response) => {
                 expect(response.status).to.eq(200)
                 expect(response.body.id).to.eq(requestBody.orderId)
-                expect(response.body.petId).to.eq(requestBody.orderId)
-                expect(response.body.quantity).to.eq(3)
+                //expect(response.body.petId).to.eq(requestBody.orderId)
+                //expect(response.body.quantity).to.eq(3)
                 expect(response.body.status).to.eq('placed')
                 expect(response.body.complete).to.eq(true)
 

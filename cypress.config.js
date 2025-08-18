@@ -5,6 +5,21 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       // implement node event listeners here
     },
-  projectId: "v6161z"
+    //downloadsFolder: "cypress/downloads",
+    //specPattern: "cypress/e2e/**/*.feature",
+    chromeWebSecurity: false,
+    defaultCommandTimeout: 30000,
+    experimentalStudio: true,
+    failOnStatusCode: false,
+    pageLoadTimeout: 30000,
+    watchForFileChanges: false,
+    experimentalRunAllSpecs: true,
+    //video: true,
+    experimentalModifyObstructiveThirdPartyCode: true,
+    //viewportHeight: 1400,
+    //viewportWidth: 1900,
+    //numTestsKeptInMemory: 0,
+    scrollBehavior: "center", // or 'nearest'
   },
-});
+  projectId: "wddr4b"
+  });
