@@ -8,8 +8,8 @@ jobs:
         uses: actions/checkout@v4  
       - name: Install Cypress 
         run: npm install cypress
-      - name: Run specific Cypress test file
-        run: npx cypress run --spec "cypress/e2e/API_Tests"
+      - name: Run specific Cypress test folder/file
+        run: npx cypress run --browser chrome --spec "cypress/e2e/API_Tests"
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
