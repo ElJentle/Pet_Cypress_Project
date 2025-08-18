@@ -12,15 +12,13 @@ jobs:
           node-version: 20
       - name: Install dependencies
         run: npm ci
-      - name: Install Cypress 
-        run: npm install cypress
-      - name: Run specific Cypress test folder/file
-        run: npx cypress run --browser chrome --spec 'cypress/e2e/API_Tests'
-      - name: Cypress run
+      - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
+          browser: chrome
+          spec: cypress/e2e/API_Tests/**/*
+          record: true
           start: npm start
           wait-on: 'http://localhost:3000'
-          record: true
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
