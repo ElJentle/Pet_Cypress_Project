@@ -49,13 +49,14 @@ describe('Operations about user', () => {
     });
     it('Find purchase order by ID', () => {
         const requestBody = {
-            orderId: 121,
+            orderId: 12,
         }
         cy.request(
             {
                 method: 'GET',
-                url: 'https://petstore.swagger.io/v2/store/order/121',
-                body: requestBody
+                url: 'https://petstore.swagger.io/v2/store/order/12',
+                body: requestBody,
+                failOnStatusCode: false
             })
             .then((response) => {
                 expect(response.status).to.eq(200);
