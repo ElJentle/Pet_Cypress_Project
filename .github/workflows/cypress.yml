@@ -6,6 +6,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4  
+      - name: Install Cypress 
+        run: npm cypress install
       - name: Run specific Cypress test file
         run: npx cypress run --spec "cypress/e2e/API_Tests"
       - name: Cypress run
