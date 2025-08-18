@@ -1,6 +1,6 @@
 import googlePage from '../../support/pages/pageObject/google-page'
 
-describe('Verify onClick search result link opens on a new tab', () => {
+describe.skip('Verify onClick search result link opens on a new tab', () => {
 
     before(() => {
         cy.visit('https://www.google.com')

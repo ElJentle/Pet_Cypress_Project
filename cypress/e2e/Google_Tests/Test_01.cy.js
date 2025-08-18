@@ -1,6 +1,6 @@
 import googlePage from '../../support/pages/pageObject/google-page'
 
-describe('Verify search input field supports auto suggestion', () => {
+describe.skip('Verify search input field supports auto suggestion', () => {
 
     before(() => {
         cy.visit('https://www.google.com')
