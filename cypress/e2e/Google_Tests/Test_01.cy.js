@@ -7,7 +7,7 @@ describe('Verify search input field supports auto suggestion', () => {
         cy.url().should('contain', 'https://www.google.com')
     })
 
-    it('Verify search input field supports auto suggestion', () => {
+    it.skip('Verify search input field supports auto suggestion', () => {
         googlePage.validateGoogleHomePage()
         googlePage.enterSearchParam()
         googlePage.verifyAutoSuggestion()

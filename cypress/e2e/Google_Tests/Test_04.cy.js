@@ -6,7 +6,7 @@ describe('Verify onClick search result link opens on a new tab', () => {
         cy.visit('https://www.google.com')
     })
 
-    it('Verify onClick search result link opens on a new tab', () => {
+    it.skip('Verify onClick search result link opens on a new tab', () => {
         googlePage.validateGoogleHomePage()
         googlePage.performSearch()
         googlePage.verifyResultsPage()

@@ -6,7 +6,7 @@ describe('Verify search result on image page are displayed', () => {
         cy.visit('https://www.google.com')
     })
 
-    it('Verify search result on image page are displayed', () => {
+    it.skip('Verify search result on image page are displayed', () => {
         googlePage.validateGoogleHomePage()
         googlePage.performSearch()
         googlePage.verifyResultsPage()

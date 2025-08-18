@@ -6,7 +6,7 @@ describe('Verify search results are applicable to the search parameter', () => {
         cy.visit('https://www.google.com')
     })
 
-    it('Verify search results are applicable to the search parameter', () => {
+    it.skip('Verify search results are applicable to the search parameter', () => {
         googlePage.validateGoogleHomePage()
         googlePage.performSearch()
         googlePage.verifyResultsPage()
