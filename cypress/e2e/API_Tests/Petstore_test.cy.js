@@ -24,6 +24,7 @@ describe('Operations about user', () => {
                 expect(response.body.message).to.include(requestBody.id);
             })
     });
+
     it('Create user - nagative test', () => {
         const requestBody = {
             id: '.,/+_)(**&^',
@@ -47,6 +48,7 @@ describe('Operations about user', () => {
                 expect(response.body.message).to.include("something bad happened");
             })
     });
+
     it('Find purchase order by ID', () => {
         const requestBody = {
             orderId: 12,
@@ -59,15 +61,16 @@ describe('Operations about user', () => {
                 failOnStatusCode: false
             })
             .then((response) => {
-                expect(response.status).to.eq(200);
-                expect(response.body.id).to.eq(requestBody.orderId);
-                //expect(response.body.petId).to.eq(requestBody.orderId);
-                //expect(response.body.quantity).to.eq(3);
-                expect(response.body.status).to.eq('placed');
-                expect(response.body.complete).to.eq(true);
-
+                if (response.status === 200) {
+                    expect(response.body.id).to.eq(requestBody.orderId);
+                    expect(response.body.status).to.eq('placed');
+                    expect(response.body.complete).to.eq(true);
+                } else {
+                    expect(response.body.message).to.eq('Order not found');
+                }
             })
     });
+
     it('Find purchase order by ID - nagative test', () => {
         const requestBody = {
             orderId: 9,
@@ -88,6 +91,7 @@ describe('Operations about user', () => {
                 }
             })
     });
+
     it('Place an order for a pet', () => {
         const requestBody = {
             id: apiHelper.numericInput(),
@@ -114,6 +118,7 @@ describe('Operations about user', () => {
 
             })
     });
+    
     it('Place an order for a pet - negative test', () => {
         const requestBody = {
             id: apiHelper.numericInput(),

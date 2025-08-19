@@ -4,6 +4,9 @@ module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
+      registerCypressGrepPlugin(config);
+
+      return config;
     },
     //downloadsFolder: "cypress/downloads",
     //specPattern: "cypress/e2e/**/*.feature",
