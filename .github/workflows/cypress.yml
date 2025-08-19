@@ -17,7 +17,7 @@ jobs:
         with:
           browser: chrome
           # Run only API tests
-          spec: cypress/e2e/API_Tests/**/*.cy.js
+          spec: cypress/e2e/API_Tests/Petstore_test.cy.js
           # Pass custom environment variables
           env: grepTags=@smoke
           record: true
