@@ -1,13 +1,13 @@
-/*import googlePage from '../../support/pages/pageObject/google-page'
+import googlePage from '../../support/pages/pageObject/google-page'
 
-describe.skip('Verify search input field supports auto suggestion', () => {
+describe('Verify search input field supports auto suggestion', () => {
 
     before(() => {
         cy.visit('https://www.google.com')
         cy.url().should('contain', 'https://www.google.com')
     })
 
-    it.skip('Verify search input field supports auto suggestion', () => {
+    it('Verify search input field supports auto suggestion', () => {
         googlePage.validateGoogleHomePage()
         googlePage.enterSearchParam()
         googlePage.verifyAutoSuggestion()
@@ -16,4 +16,4 @@ describe.skip('Verify search input field supports auto suggestion', () => {
     after(() => {
     })
 
-}) */
+}) 

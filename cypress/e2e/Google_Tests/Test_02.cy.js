@@ -1,4 +1,4 @@
-/*import googlePage from '../../support/pages/pageObject/google-page'
+import googlePage from '../../support/pages/pageObject/google-page'
 
 describe.skip('Verify search results are applicable to the search parameter', () => {
 
@@ -16,4 +16,4 @@ describe.skip('Verify search results are applicable to the search parameter', ()
     after(() => {
     })
 
-}) */
+}) 

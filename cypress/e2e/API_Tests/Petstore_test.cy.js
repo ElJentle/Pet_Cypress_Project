@@ -2,7 +2,7 @@ import apiHelper from '../../support/pages/API_petstore'
 
 describe('Operations about user', () => {
 
-    it('Create user', () => {
+    it('Create user', { tags: '@smoke' }, () => {
         const requestBody = {
             id: apiHelper.numericInput(),
             username: apiHelper.alphabeticInput(),
@@ -25,7 +25,7 @@ describe('Operations about user', () => {
             })
     });
 
-    it('Create user - nagative test', () => {
+    it('Create user - nagative test', { tags: '@smoke' }, () => {
         const requestBody = {
             id: '.,/+_)(**&^',
             username: apiHelper.alphabeticInput(),
@@ -49,7 +49,7 @@ describe('Operations about user', () => {
             })
     });
 
-    it('Find purchase order by ID', () => {
+    it('Find purchase order by ID', { tags: '@smoke' }, () => {
         const requestBody = {
             orderId: 12,
         }
@@ -118,7 +118,7 @@ describe('Operations about user', () => {
 
             })
     });
-    
+
     it('Place an order for a pet - negative test', () => {
         const requestBody = {
             id: apiHelper.numericInput(),

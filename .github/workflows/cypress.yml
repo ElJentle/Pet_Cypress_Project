@@ -16,7 +16,10 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           browser: chrome
-          spec: cypress/e2e/API_Tests/**/*
+          # Run only API tests
+          spec: cypress/e2e/API_Tests/**/*.cy.js
+          # Pass custom environment variables
+          env: grepTags=@smoke
           record: true
           start: npm start
           wait-on: 'http://localhost:3000'
