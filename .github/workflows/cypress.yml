@@ -21,7 +21,7 @@ jobs:
           # Pass custom environment variables
           env: grepTags=@smoke
           record: true
-          start: npm start
-          wait-on: 'http://localhost:3000'
+          #start: npm start
+         # wait-on: 'http://localhost:3000'
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
