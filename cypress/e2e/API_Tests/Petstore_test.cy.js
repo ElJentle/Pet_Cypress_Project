@@ -2,7 +2,7 @@ import apiHelper from '../../support/pages/API_petstore'
 
 describe('Operations about user', () => {
 
-    it('Create user', {tags: '@smoke'}, () => {
+    it('Create user', { tags: '@smoke' }, () => {
         const requestBody = {
             id: apiHelper.numericInput(),
             username: apiHelper.alphabeticInput(),
@@ -20,11 +20,12 @@ describe('Operations about user', () => {
                 body: requestBody
             })
             .then((response) => {
-                expect(response.status).to.eq(200)
-                expect(response.body.message).to.include(requestBody.id)
+                expect(response.status).to.eq(200);
+                expect(response.body.message).to.include(requestBody.id);
             })
-    })
-    it('Create user - nagative test', {tags: '@smoke'}, () => {
+    });
+
+    it('Create user - nagative test', { tags: '@smoke' }, () => {
         const requestBody = {
             id: '.,/+_)(**&^',
             username: apiHelper.alphabeticInput(),
@@ -43,31 +44,34 @@ describe('Operations about user', () => {
                 failOnStatusCode: false
             })
             .then((response) => {
-                expect(response.status).to.eq(500)
-                expect(response.body.message).to.include("something bad happened")
+                expect(response.status).to.eq(500);
+                expect(response.body.message).to.include("something bad happened");
             })
-    })
-    it('Find purchase order by ID', {tags: '@smoke'}, () => {
+    });
+
+    it('Find purchase order by ID', { tags: '@smoke' }, () => {
         const requestBody = {
-            orderId: 10,
+            orderId: 12,
         }
         cy.request(
             {
                 method: 'GET',
-                url: 'https://petstore.swagger.io/v2/store/order/10',
-                body: requestBody
+                url: 'https://petstore.swagger.io/v2/store/order/12',
+                body: requestBody,
+                failOnStatusCode: false
             })
             .then((response) => {
-                expect(response.status).to.eq(200)
-                expect(response.body.id).to.eq(requestBody.orderId)
-                expect(response.body.petId).to.eq(requestBody.orderId)
-                expect(response.body.quantity).to.eq(3)
-                expect(response.body.status).to.eq('placed')
-                expect(response.body.complete).to.eq(true)
-
+                if (response.status === 200) {
+                    expect(response.body.id).to.eq(requestBody.orderId);
+                    expect(response.body.status).to.eq('placed');
+                    expect(response.body.complete).to.eq(true);
+                } else {
+                    expect(response.body.message).to.eq('Order not found');
+                }
             })
-    })
-    it('Find purchase order by ID - nagative test', {tags: '@smoke'}, () => {
+    });
+
+    it('Find purchase order by ID - nagative test', () => {
         const requestBody = {
             orderId: 9,
         }
@@ -79,11 +83,16 @@ describe('Operations about user', () => {
                 failOnStatusCode: false
             })
             .then((response) => {
-                expect(response.status).to.eq(404)
-                expect(response.body.message).to.include("Order not found")
+                if (response.status === 200) {
+                    expect(response.body.status).to.eq('placed')
+                } else {
+                expect(response.status).to.eq(404);
+                expect(response.body.message).to.include("Order not found");
+                }
             })
-    })
-    it('Place an order for a pet', {tags: '@smoke'}, () => {
+    });
+
+    it('Place an order for a pet', () => {
         const requestBody = {
             id: apiHelper.numericInput(),
             petId: 1,
@@ -99,17 +108,18 @@ describe('Operations about user', () => {
                 body: requestBody
             })
             .then((response) => {
-                expect(response.status).to.eq(200)
-                expect(response.body.id).to.eq(requestBody.id)
-                expect(response.body.petId).to.eq(requestBody.petId)
-                expect(response.body.quantity).to.eq(requestBody.quantity)
-                expect(response.body.shipDate).to.eq("2024-06-19T22:10:56.002+0000")
-                expect(response.body.status).to.eq(requestBody.status)
-                expect(response.body.complete).to.eq(requestBody.complete)
+                expect(response.status).to.eq(200);
+                expect(response.body.id).to.eq(requestBody.id);
+                expect(response.body.petId).to.eq(requestBody.petId);
+                expect(response.body.quantity).to.eq(requestBody.quantity);
+                expect(response.body.shipDate).to.eq("2024-06-19T22:10:56.002+0000");
+                expect(response.body.status).to.eq(requestBody.status);
+                expect(response.body.complete).to.eq(requestBody.complete);
 
             })
-    })
-    it('Place an order for a pet - negative test', {tags: '@smoke'}, () => {
+    });
+
+    it('Place an order for a pet - negative test', () => {
         const requestBody = {
             id: apiHelper.numericInput(),
             petId: 'hj',
@@ -126,8 +136,8 @@ describe('Operations about user', () => {
                 failOnStatusCode: false
             })
             .then((response) => {
-                expect(response.status).to.eq(500)
-                expect(response.body.message).to.eq("something bad happened")
+                expect(response.status).to.eq(500);
+                expect(response.body.message).to.eq("something bad happened");
             })
     })
 

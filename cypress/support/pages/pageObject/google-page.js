@@ -1,7 +1,7 @@
 class buildBundle {
 
     elements = {
-        googleLogo: () => cy.get('img[alt="Google"]'),
+        googleLogo: () => cy.get('div svg[class="lnXdpd"]'),
         searchInput: () => cy.get('textarea[id="APjFqb"]'),
         searchButton: () => cy.get('input[value="Google Search"]:eq(1)'),
         autoSuggestItem: () => cy.get('div[class="pcTkSc"]:eq(0)'),

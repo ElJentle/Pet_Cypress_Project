@@ -4,7 +4,8 @@
   "description": "pet_cypress_project",
   "main": "index.js",
   "scripts": {
-    "start": "cypress run --record",
+    "build": "rollup -c",
+    "start": "node server.js",
     "test": "cypress run",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
@@ -13,8 +14,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^13.10.0",
-    "cypress-xpath": "^2.0.1"
+    "@cypress/grep": "^4.1.1",
+    "cypress": "^13.13.3",
+    "cypress-xpath": "^2.0.1",
+    "or": "^0.2.0",
+    "start-server-and-test": "^2.0.3"
   },
   "dependencies": {
     "faker": "^6.6.6"
