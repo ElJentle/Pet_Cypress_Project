@@ -2,7 +2,7 @@ import apiHelper from '../../support/pages/API_petstore'
 
 describe('Operations about user', () => {
 
-    it('Create user', () => {
+    it('Create user', {tags: '@smoke'}, () => {
         const requestBody = {
             id: apiHelper.numericInput(),
             username: apiHelper.alphabeticInput(),
@@ -24,7 +24,7 @@ describe('Operations about user', () => {
                 expect(response.body.message).to.include(requestBody.id)
             })
     })
-    it('Create user - nagative test', () => {
+    it('Create user - nagative test', {tags: '@smoke'}, () => {
         const requestBody = {
             id: '.,/+_)(**&^',
             username: apiHelper.alphabeticInput(),
@@ -47,7 +47,7 @@ describe('Operations about user', () => {
                 expect(response.body.message).to.include("something bad happened")
             })
     })
-    it('Find purchase order by ID', () => {
+    it('Find purchase order by ID', {tags: '@smoke'}, () => {
         const requestBody = {
             orderId: 10,
         }
@@ -67,7 +67,7 @@ describe('Operations about user', () => {
 
             })
     })
-    it('Find purchase order by ID - nagative test', () => {
+    it('Find purchase order by ID - nagative test', {tags: '@smoke'}, () => {
         const requestBody = {
             orderId: 9,
         }
@@ -83,7 +83,7 @@ describe('Operations about user', () => {
                 expect(response.body.message).to.include("Order not found")
             })
     })
-    it('Place an order for a pet', () => {
+    it('Place an order for a pet', {tags: '@smoke'}, () => {
         const requestBody = {
             id: apiHelper.numericInput(),
             petId: 1,
@@ -109,7 +109,7 @@ describe('Operations about user', () => {
 
             })
     })
-    it('Place an order for a pet - negative test', () => {
+    it('Place an order for a pet - negative test', {tags: '@smoke'}, () => {
         const requestBody = {
             id: apiHelper.numericInput(),
             petId: 'hj',
@@ -130,7 +130,6 @@ describe('Operations about user', () => {
                 expect(response.body.message).to.eq("something bad happened")
             })
     })
-
 
 
 })

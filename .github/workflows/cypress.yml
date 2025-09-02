@@ -17,5 +17,11 @@ jobs:
           start: npm start
           wait-on: 'http://localhost:3000'
           record: true
+          with:
+          browser: chrome
+          # Run only API tests
+          spec: cypress/e2e
+          # Pass custom environment variables
+          env: grepTags=@smoke
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
