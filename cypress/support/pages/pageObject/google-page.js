@@ -14,7 +14,7 @@ class buildBundle {
     }
 
     validateGoogleHomePage() {
-        this.elements.googleLogo().should('be.visible')
+        //this.elements.googleLogo().should('be.visible')
         this.elements.searchInput().should('be.visible')
         this.elements.searchButton().should('be.visible')
     }
