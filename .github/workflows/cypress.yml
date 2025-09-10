@@ -1,30 +1,16 @@
-name: Run cypress Tests
-
-on:
-  repository_dispatch:
-    types: [run-tests]
-
+name: Cypress Tests
+on: [push]
 jobs:
-  cypress-test:
+  cypress-run:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4  
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - name: Install dependencies
-        run: npm ci
-      - name: Run Cypress tests
+        uses: actions/checkout@v4
+      - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          browser: chrome
-          # Run only API tests
-          spec: cypress/e2e
-          # Pass custom environment variables
-          env: grepTags=@smoke
+          start: npm start
+          wait-on: 'http://localhost:3000'
           record: true
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-          
