@@ -9,14 +9,23 @@
     "test": "cypress run",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "cypress:record": "cypress run --record --key"
+    "cypress:record": "cypress run --record --key",
+    "cypress:open:qa-test": "cross-env CYPRESS_ENV=qa-test cypress open",
+    "cypress:run:qa-test": "cross-env CYPRESS_ENV=qa-test cypress run",
+    "cypress:open:uat-test": "cross-env CYPRESS_ENV=uat-test cypress open",
+    "cypress:run:uat-test": "cross-env CYPRESS_ENV=uat-test cypress run"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^23.1.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.5",
     "@cypress/grep": "^4.1.1",
+    "cross-env": "^10.0.0",
+    "cross-spawn": "^7.0.6",
     "cypress": "^13.17.0",
     "cypress-xpath": "^2.0.1",
+    "dotenv": "^17.2.2",
     "or": "^0.2.0",
     "start-server-and-test": "^2.0.3"
   },
