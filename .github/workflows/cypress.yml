@@ -17,8 +17,8 @@ jobs:
           # Run only API tests
           spec: cypress/e2e
           # Pass custom environment variables
-          #env: grepTags=@smoke
+          env: grepTags=@smoke
           record: true
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-          CYPRESS_ENV: uat-test
+          CYPRESS_ENV: qa-test
