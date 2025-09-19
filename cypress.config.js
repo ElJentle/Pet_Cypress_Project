@@ -1,21 +1,40 @@
 const { defineConfig } = require("cypress");
 const createBundler = require("@bahmutov/cypress-esbuild-preprocessor");
 const { addCucumberPreprocessorPlugin } = require("@badeball/cypress-cucumber-preprocessor");
-const preprocessor = require("@badeball/cypress-cucumber-preprocessor");
-const browserify = require("@badeball/cypress-cucumber-preprocessor/browserify");
+//const preprocessor = require("@badeball/cypress-cucumber-preprocessor");
+//const browserify = require("@badeball/cypress-cucumber-preprocessor/browserify");
 const {createEsbuildPlugin} = require("@badeball/cypress-cucumber-preprocessor/esbuild");
+//const createEsbuildPlugin = require("@badeball/cypress-cucumber-preprocessor/esbuild").createEsbuildPlugin;
 const fs = require("fs");
 const path = require("path");
 
 
 module.exports = defineConfig({
+
+    reporter: "cypress-mochawesome-reporter", // add reporter
+    video: true,
+    reporterOptions: {
+      reportDir: "cypress/reports/mochawesome-report",
+      overwrite: true,
+      html: true,
+      json: true,
+      charts: true,
+      reportPageTitle: "WemaBank Cypress Automation Test Report",
+      embeddedScreenshots: true,
+      inlineAssets: true,
+    },
+
   e2e: {
-    specPattern: ['cypress/e2e/**/*.cy.js', "cypress/e2e/**/*.feature"], // Look for .feature files
+    specPattern: [
+      "cypress/e2e/**/*.cy.js", 
+      // Look for .feature files
+      "cypress/e2e/**/*.feature"
+    ], 
+    
     async setupNodeEvents(on, config) {
  // ✅ Initialize cucumber preprocessor
       await addCucumberPreprocessorPlugin(on, config, {
-        stepDefinitions: "cypress/e2e/UI_Tests/step_definitions/**/*.js",
-      });
+      }); 
 
       // ✅ Register esbuild bundler for .feature files
       on(
@@ -24,11 +43,15 @@ module.exports = defineConfig({
           plugins: [createEsbuildPlugin(config)],
         })
       );
-      
+
+      // Enable tag filtering
+      config.env.filterSpecs = true;
+      config.env.omitFiltered = true;
+
       //registerCypressGrepPlugin(config);
       require('@cypress/grep/src/plugin')(config)
 
-      const envName = process.env.CYPRESS_ENV || 'qa-test'; // default environment
+      const envName = (process.env.CYPRESS_ENV || 'qa-test').trim(); // default environment
       const envFilePath = path.resolve(`env_config/${envName}.env.json`);
 
       if (fs.existsSync(envFilePath)) {
@@ -38,10 +61,12 @@ module.exports = defineConfig({
         console.warn(`⚠️ Environment file not found: ${envFilePath}`);
       }
 
+      // add reporter plugin
+      require("cypress-mochawesome-reporter/plugin")(on);
+
       return config;
     },
     //downloadsFolder: "cypress/downloads",
-    //specPattern: "cypress/e2e/**/*.feature",
     chromeWebSecurity: false,
     defaultCommandTimeout: 30000,
     experimentalStudio: true,
@@ -49,7 +74,7 @@ module.exports = defineConfig({
     pageLoadTimeout: 30000,
     watchForFileChanges: false, 
     experimentalRunAllSpecs: true,
-    video: true,
+    video: false,
     experimentalModifyObstructiveThirdPartyCode: true,
     //viewportHeight: 1400,
     //viewportWidth: 1900,

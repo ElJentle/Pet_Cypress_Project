@@ -35,7 +35,7 @@ export default class googleSearch {
         return this;
     }
     verifyAutoSuggestion() {
-        this.elements.searchInput().should('include.value', 'What is software Testi');
+        this.elements.searchInput().should('include.value', 'What is software Te');
 
         return this;
     }

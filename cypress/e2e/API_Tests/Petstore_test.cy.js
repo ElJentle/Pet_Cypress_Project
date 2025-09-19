@@ -16,7 +16,7 @@ describe('Operations about user', () => {
         cy.request(
             {
                 method: 'POST',
-                url: 'https://petstore.swagger.io/v2/user',
+                url: Cypress.env('baseURL')+'/v2/user',
                 body: requestBody
             })
             .then((response) => {

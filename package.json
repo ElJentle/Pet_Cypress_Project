@@ -1,7 +1,7 @@
 {
-  "name": "pet_cypress_project",
+  "name": "wemabank_cypress_automation_tests",
   "version": "2.0.0",
-  "description": "pet_cypress_project",
+  "description": "wemabank_cypress_automation_tests",
   "main": "index.js",
   "scripts": {
     "build": "rollup -c",
@@ -15,17 +15,26 @@
     "cypress:open:uat-test": "cross-env CYPRESS_ENV=uat-test cypress open",
     "cypress:run:uat-test": "cross-env CYPRESS_ENV=uat-test cypress run"
   },
+
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^23.1.0",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.5",
     "@cypress/grep": "^4.1.1",
+    "@shelex/cypress-allure-plugin": "^2.41.2",
+    "allure-commandline": "^2.34.1",
     "cross-env": "^10.0.0",
     "cross-spawn": "^7.0.6",
     "cypress": "^13.17.0",
+    "cypress-mochawesome-reporter": "^4.0.2",
+    "cypress-multi-reporters": "^2.0.5",
     "cypress-xpath": "^2.0.1",
     "dotenv": "^17.2.2",
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^5.0.0",
+    "mochawesome-report-generator": "^6.3.0",
+    "multiple-cucumber-html-reporter": "^3.9.3",
     "or": "^0.2.0",
     "start-server-and-test": "^2.0.3"
   },
