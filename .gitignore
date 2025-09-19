@@ -14,3 +14,4 @@ TEST*.xml
 Thumbs.db
 
 "cypress/screenshots" 
+"cypress\reports" 
