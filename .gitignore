@@ -2,6 +2,7 @@ node_modules/
 dist/
 cypress\videos
 cypress\reports
+cypress\screenshots
 
 # Unit test reports
 TEST*.xml
