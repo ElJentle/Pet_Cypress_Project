@@ -1,8 +1,8 @@
-node_modules/
 dist/
 cypress\videos
 cypress\reports
 cypress\screenshots
+package.json
 
 # Unit test reports
 TEST*.xml
