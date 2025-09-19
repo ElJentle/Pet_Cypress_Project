@@ -16,7 +16,7 @@
     "cypress:run:uat-test": "cross-env CYPRESS_ENV=uat-test cypress run"
   },
 
-  "author": "Emmanuel Esuong",
+  "author": "EmmanuelEsuong",
   "license": "ISC",
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^23.1.0",
