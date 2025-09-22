@@ -9,13 +9,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Cypress run
+        run: NO_PROXY=10.21.21.246
         uses: cypress-io/github-action@v6
         with:
           #start: npm start
           #wait-on: 'http://localhost:3000'
           browser: chrome
           # Run only API tests
-          spec: cypress/e2e
+          spec: cypress\e2e\UI_Tests\features\finacleStatement_login.feature
           # Pass custom environment variables
           env: grepTags=@smoke
           record: true

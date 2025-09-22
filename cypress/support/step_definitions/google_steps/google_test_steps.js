@@ -17,6 +17,20 @@ export default class googleSearch {
         searcResultLink: () => cy.get('h3[class="LC20lb MBeuO DKV0Md"]:eq(0)')
     }
 
+        visitFinacleStatement() {
+        cy.visit(Cypress.env('finacleStatement_url'));
+        //cy.smartVisit(Cypress.env('finacleStatement_url'));
+    };
+
+    onLandingPage() {
+        cy.url().should('contain', Cypress.env('finacleStatement_url'));
+    }
+
+    checkPageTitle() {
+        cy.contains("Finacle Statement");
+        //cy.contains("DQI Portal"); 
+    }
+
     visitGoogle() {
         cy.visit(Cypress.env('web_url'));
         cy.url().should('contain', Cypress.env('web_url'));
@@ -89,4 +103,18 @@ When("the user types into the search field", () => {
 
 Then("applicable auto suggestions are displayed", () => {
     googlesearch.verifyAutoSuggestion();
+});
+
+//const finStatement = new finacleStatement();
+        
+Given("the user visits finacle statement", () => {
+    googlesearch.visitFinacleStatement();
+});
+
+When("the user is on finacle statement login page", () => {
+    googlesearch.onLandingPage();
+});
+
+Then("the page tile Finacle Statement is displayed", () => {
+    googlesearch.checkPageTitle();
 });
