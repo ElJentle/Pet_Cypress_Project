@@ -19,7 +19,7 @@ jobs:
           # Run only API tests
           spec: cypress\e2e\UI_Tests\features\finacleStatement_login.feature
           # Pass custom environment variables
-          env: grepTags=@smoke
+          #env: grepTags=@smoke
           record: true
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
