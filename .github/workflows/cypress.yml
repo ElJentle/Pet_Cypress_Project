@@ -8,8 +8,9 @@ jobs:
         uses: actions/checkout@v4
       - name: Install dependencies
         run: npm ci
+      - name: set no-proxy  
+        run: set NO_PROXY=10.21.21.246
       - name: Cypress run
-        run: NO_PROXY=10.21.21.246
         uses: cypress-io/github-action@v6
         with:
           #start: npm start
